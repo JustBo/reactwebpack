@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
+
+import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
+
 import './App.css';
-import Hook from "./components/Hook/Hook";
-// import Lazy from "./components/Lazy";
-import Memo from "./components/Memo/Memo";
-import Pure from "./components/PureComponent/Pure";
-import Refs from "./components/Refs";
-import Webworker from "./components/Webworker";
+
+import routes from './routes';
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <Hook/>
-                {/*<Lazy/>*/}
-                <Memo/>
-                <Pure/>
-                <Refs/>
-                <Webworker/>
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <header>
+                        {routes.map((item, key) => <Link key={key} to={item.path}>{item.name}</Link>)}
+                    </header>
+                    <Switch>
+                        {routes.map((item, key) => <Route key={key} {...item}/>)}
+                    </Switch>
+                </div>
+            </BrowserRouter>
         );
     }
 }
