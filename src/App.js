@@ -11,9 +11,9 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <header>
+                    <aside>
                         {routes.map((item, key) => <Link key={key} to={item.path}>{item.name}</Link>)}
-                    </header>
+                    </aside>
                     <Switch>
                         {routes.map((item, key) => <Route key={key} {...item}/>)}
                     </Switch>

@@ -25,7 +25,7 @@ h1 {
 
 .App-intro {
     font-size: large;
-}
+}justify-content
 
 .App-left {
     width: 50%;
@@ -41,8 +41,11 @@ h1 {
     text-align: center;
 }
 
-header {
+aside {
+    position: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     margin: 20px;
+    height: 100vh;
 }

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{17:function(n,e,t){"use strict";t.r(e);var a=t(0),s=t.n(a);e.default=function(){return s.a.createElement("h1",null,"MTV Base Headline Artists 2019")}}}]);

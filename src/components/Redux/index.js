@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 
-import {fetch, addUser} from '../../store/actions';
 import PropTypes from 'prop-types';
+
+import {fetchUsers, addUser} from "../../store/actions";
 
 class Redux extends Component {
 
     componentDidMount() {
-        this.props.fetch();
+        this.props.fetchUsers();
     }
 
     handleAddUser = () => this.props.addUser();
@@ -16,7 +17,8 @@ class Redux extends Component {
         const {users} = this.props;
         return (
             <div>
-                {Object.keys(users).map((item, key) => <div key={key}>{users[item].name}</div>)}
+                {users.data.map((item, key) => <div key={key}>{item.name}</div>)}
+                {users.loading && <div>Loading...</div>}
                 <button onClick={this.handleAddUser}>
                     Add user
                 </button>
@@ -33,8 +35,8 @@ function MapStateToProps(state) {
 
 Redux.propTypes = {
     users: PropTypes.object,
-    fetch: PropTypes.func,
-    addUser: PropTypes.func,
+    fetchUsers: PropTypes.func,
+    addUser: PropTypes.func
 };
 
-export default connect(MapStateToProps, { fetch, addUser })(Redux);
+export default connect(MapStateToProps, {fetchUsers, addUser})(Redux);
